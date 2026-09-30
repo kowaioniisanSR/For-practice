@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f3f7f2">
+	<title>おいしいもの | レシピ棚</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<div class="page-shell">
+		<header class="topbar">
+			<a class="brand" href="#top" aria-label="おいしいもの ホーム">
+				<span class="brand-mark" aria-hidden="true">g.</span>
+				<span>おいしいもの<span class="brand-dot">。</span></span>
+			</a>
+			<span class="topbar-note"><span class="status-dot"></span> わたしのレシピ帳</span>
+		</header>
+
+		<main id="top">
+			<section class="intro" aria-labelledby="page-title">
+				<div>
+					<p class="eyebrow">みんなで囲む、おいしい時間</p>
+					<h1 id="page-title">お気に入りの<span>レシピ棚。</span></h1>
+					<p class="intro-copy">大好きなレシピも、これから作りたいレシピも、ここに残しておきましょう。</p>
+				</div>
+				<div class="intro-stamp" aria-hidden="true"><span>作って<br>分けて<br>また作る</span><span class="stamp-spark">✳</span></div>
+			</section>
+
+			<div class="workspace">
+				<aside class="add-panel" aria-labelledby="form-title">
+					<div class="panel-heading">
+						<span class="step-number">01</span>
+						<h2 id="form-title">レシピを追加</h2>
+					</div>
+					<p class="panel-copy">おいしい思い出を記録しましょう。</p>
+					<form id="recipe-form">
+						<label for="recipe-name">レシピ名</label>
+						<input id="recipe-name" name="name" type="text" placeholder="例：日曜日のレモンケーキ" maxlength="70" required>
+
+						<label for="recipe-description">材料・メモ</label>
+						<textarea id="recipe-description" name="description" placeholder="材料や分量、お気に入りのポイントなど…" maxlength="280" rows="4" required></textarea>
+
+						<label for="recipe-instructions">作り方（1行ずつ手順を入力）</label>
+						<textarea id="recipe-instructions" name="instructions" placeholder="例：野菜を切り、フライパンで炒める" maxlength="1000" rows="5" required></textarea>
+
+						<button class="add-button" type="submit"><span aria-hidden="true">+</span> レシピ棚に追加</button>
+					</form>
+					<div class="panel-footnote"><span aria-hidden="true">♡</span> 分け合うレシピは、いつだって格別。</div>
+				</aside>
+
+				<section class="recipe-section" aria-labelledby="recipes-title">
+					<div class="list-heading">
+						<div class="list-title-wrap">
+							<span class="step-number">02</span>
+							<h2 id="recipes-title">レシピ棚</h2>
+							<span class="recipe-count" id="recipe-count" aria-live="polite">0 件</span>
+						</div>
+						<span class="list-note">お気に入りを集めています <span aria-hidden="true">↗</span></span>
+					</div>
+					<div class="recipe-grid" id="recipe-list" aria-live="polite"></div>
+					<p class="empty-state" id="empty-state" hidden>まだレシピがありません。お気に入りのレシピを追加して始めましょう。</p>
+				</section>
+			</div>
+		</main>
+
+		<dialog class="recipe-dialog" id="recipe-dialog" aria-labelledby="recipe-dialog-title">
+			<div class="recipe-dialog-layout">
+				<div class="recipe-dialog-image-wrap">
+					<img id="recipe-dialog-image" alt="">
+				</div>
+				<div class="recipe-dialog-content">
+					<div class="recipe-dialog-heading">
+						<div>
+							<p class="dialog-kicker">レシピ</p>
+							<h2 id="recipe-dialog-title"></h2>
+						</div>
+						<button class="dialog-close" id="recipe-dialog-close" type="button" aria-label="閉じる">×</button>
+					</div>
+					<p class="recipe-dialog-description" id="recipe-dialog-description"></p>
+					<section class="recipe-method" aria-labelledby="recipe-method-title">
+						<h3 id="recipe-method-title">作り方</h3>
+						<ol id="recipe-dialog-steps"></ol>
+						<p class="recipe-dialog-empty" id="recipe-dialog-empty" hidden>作り方はまだ登録されていません。</p>
+					</section>
+				</div>
+			</div>
+		</dialog>
+
+		<footer class="footer"><span>おいしいごはん、楽しいひととき。</span><span>愛情を込めて <span class="footer-heart">♥</span></span></footer>
+	</div>
+</body>
+</html>
